@@ -1,0 +1,8 @@
+<h1><%= @post.title %></h1>
+<p>Posted on: <%= @post.date %> </p>
+<h4><%= @post.blog %></h4>
+<p><%= link_to "Edit entry", edit_post_path(@post) %> |
+<%= link_to "Delete entry", post_path(@post), :data => {:confirm => "Are you sure?", :method=> "delete"} %> |
+<%= link_to "Comment", edit_post_path(@post) %> |
+<%= link_to "Return to Main Page", posts_path %>
+</p>
