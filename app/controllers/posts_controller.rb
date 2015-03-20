@@ -10,6 +10,7 @@ class PostsController <ApplicationController
 
   def create
   @post = Post.new(post_params)
+  @post.date = Time.now
     if @post.save
       flash[:notice] = "Post successfully added!"
       redirect_to posts_path
@@ -49,7 +50,7 @@ class PostsController <ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:title, :date, :blog)
+      params.require(:post).permit(:title, :blog)
     end
 
 end
