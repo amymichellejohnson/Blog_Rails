@@ -1,0 +1,11 @@
+<h1>Hi! welcome!</h1>
+
+<%= link_to "Create New Post", new_post_path %>
+
+<h1>Here are all your posts:</h1>
+
+<% @posts.each do |post| %>
+  <ul>
+    <li><%= post.title %></li>
+  </ul>
+<% end %>
