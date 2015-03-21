@@ -3,6 +3,16 @@
 <h4><%= @post.blog %></h4>
 <p><%= link_to "Edit entry", edit_post_path(@post) %> |
 <%= link_to "Delete entry", post_path(@post), :data => {:confirm => "Are you sure?", :method=> "delete"} %> |
-<%= link_to "Comment", edit_post_path(@post) %> |
+<%= link_to "Comment", new_post_comment_path(@post) %> |
 <%= link_to "Return to Main Page", posts_path %>
 </p>
+
+<h1>Comments on this blog:</h1>
+<% @comments.each do |comment| %>
+  <p>By: <%= comment.name %></p>
+  <p><%= comment.comment %></p>
+  <p><%= link_to "Edit entry", edit_post_comment_path(@post, comment) %> |
+  <%= link_to "Delete entry", post_comment_path(@post, comment), :data => {:confirm => "Are you sure?", :method=> "delete"} %>
+  <br>
+
+<% end %>

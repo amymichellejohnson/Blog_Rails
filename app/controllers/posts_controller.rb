@@ -21,6 +21,7 @@ class PostsController <ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @comments = @post.comments
   end
 
   def edit
@@ -43,10 +44,6 @@ class PostsController <ApplicationController
     flash[:alert] = "Post deleted"
     redirect_to posts_path
   end
-
-
-
-
 
   private
     def post_params
