@@ -1,50 +1,56 @@
-== README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
-
-INTRODUCTION
+##Blog App (Ruby on Rails)
 ------------
-The Auction app allows users to create lots for an auction and to then input individual products into those lots.  Users can click on individual products to view more information and when the auction will be held.
+The Blog app allows users to post their thoughts in a blog entry with a title and date and to see all of their posts listed by title with a link to each post, so that they may update or delete any of their posts. The app also allows other users to comment on a blog post, have their comments displayed, and to be able to edit or delete their comments.
 
 MOTIVATION
 ------------
-To practice using templates, controllers, an application template, models, and to practice storing data properly with ember.js.
+To practice using Ruby on Rails routes, models, controllers, form-builders, route-helpers, error displays, partials, mass-assignment, integration tests, and the asset pipeline for Bootstrap/CSS.
 
 REQUIREMENTS
 ------------
-A computer with a Web Browser.
+
+Ruby v 2.2.0
+
+postgreSQL 9.4.0
 
 
 INSTALLATION
---------------
-1. In terminal (for Macs) type:
-``$ python -m SimpleHTTPServer``
-2. Open localhost:8000 in your Web browser.
+------------
+
+Run the following command to install bundler:
+```
+$ gem install bundler
+```
+
+Run the following command to install all required gems:
+```
+$ bundle
+```
+
+Run the following command to start the postgreSQL server:
+```
+$ postgres
+```
+
+Run the following command to create the databases:
+```
+$ rake db:create
+```
+
+Run the following command to populate the databases:
+```
+$ rake db:migrate
+```
+
+Run the following command to test using rspec:
+```
+$ rspec
+```
+
+Run the following command to start the Rails server:
+```
+$ rails server
+```
 
 KNOWN BUGS
 ---------
@@ -52,7 +58,6 @@ No known bugs at this time.
 
 AUTHORS
 -------
-Debbie Cravey   cinemaestro@yahoo.com  and
 Amy Michelle Johnson    amy.johnson.michelle@gmail.com
 
 
@@ -60,7 +65,7 @@ Amy Michelle Johnson    amy.johnson.michelle@gmail.com
 LICENSE
 -------
 
-Copyright (c) 2015  Amy Michelle Johnson and Debbie Cravey
+Copyright (c) 2015  Amy Michelle Johnson
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
