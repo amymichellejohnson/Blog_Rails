@@ -1,9 +1,16 @@
-<%= render "layouts/errors", :object => @post %>
-
-<%= form_for @post do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :blog %>
-  <%= f.text_area :blog %>
-  <%= f.submit %>
-<% end %>
+  <%= render "layouts/errors", :object => @post %>
+<div class="col-md-4">
+  <%= form_for @post do |f| %>
+    <div class="form-group">
+      <%= f.label :title %>
+      <%= f.text_field :title, :class => 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :blog %>
+      <%= f.text_area :blog, :class => 'form-control' %>
+    </div>
+    <%= f.submit %>
+  <% end %>
+  <br>
+  <%= link_to "Return to Main Page", posts_path %>
+</div>

@@ -9,8 +9,8 @@ class PostsController <ApplicationController
   end
 
   def create
-  @post = Post.new(post_params)
-  @post.date = Time.now
+    @post = Post.new(post_params)
+    @post.date = Time.now
     if @post.save
       flash[:notice] = "Post successfully added!"
       redirect_to posts_path

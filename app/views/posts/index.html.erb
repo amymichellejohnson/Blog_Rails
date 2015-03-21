@@ -1,8 +1,10 @@
-<h1>Hi! welcome!</h1>
+<h1>Hi! Welcome to your Main Blogging Page!</h1>
 
-<%= link_to "Create New Post", new_post_path %>
+<%= link_to "Create a New Post", new_post_path %>
 
-<h1>Here are all your posts:</h1>
+<% if @posts.any? %>
+  <h2>Here are all your posts:</h2>
+<% end %>
 
 <% @posts.each do |post| %>
   <ul>

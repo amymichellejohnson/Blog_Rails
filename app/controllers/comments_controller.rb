@@ -3,7 +3,6 @@ class CommentsController <ApplicationController
   def new
     @comment = Comment.new
     @post = Post.find(params[:post_id])
-
   end
 
   def create
@@ -44,8 +43,6 @@ class CommentsController <ApplicationController
   private
   def comment_params
     params.require(:comment).permit(:comment, :name)
-
   end
-
-
+  
 end
