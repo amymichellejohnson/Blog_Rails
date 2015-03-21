@@ -1,4 +1,4 @@
-##Blog App (Ruby on Rails)
+BLOG APP (Ruby on Rails)
 ------------
 The Blog app allows users to post their thoughts in a blog entry with a title and date and to see all of their posts listed by title with a link to each post, so that they may update or delete any of their posts. The app also allows other users to comment on a blog post, have their comments displayed, and to be able to edit or delete their comments.
 
@@ -18,9 +18,7 @@ INSTALLATION
 ------------
 
 Run the following command to install bundler:
-```
-$ gem install bundler
-```
+```$ gem install bundler```
 
 Run the following command to install all required gems:
 ```
