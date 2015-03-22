@@ -8,6 +8,7 @@ describe "the add a post process" do
     fill_in 'Blog', :with => 'I met so many new animals today.  It was great!'
     click_on 'Create Post'
     expect(page).to have_content 'Animals'
+    expect(page).to have_content 'added'
   end
 
   it "gives error when no name is entered" do

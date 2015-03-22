@@ -1,4 +1,5 @@
 require 'rails_helper'
+
 describe "the add a comment process" do
   it "adds a new comment" do
     post = Post.create(:title => "Epicodus", :blog => "So happy I attended", :id => 1)
@@ -8,6 +9,8 @@ describe "the add a comment process" do
     fill_in 'Comment', :with => 'I agree!'
     click_on 'Create Comment'
     expect(page).to have_content 'I agree'
+    expect(page).to have_content 'added'
+
   end
 
   it "gives error when no name is entered" do

@@ -1,4 +1,5 @@
 require 'rails_helper'
+
 describe "edit a comment process" do
   it "edits a comment name" do
     post = Post.create(:title => "Epicodus", :blog => "So happy I attended", :id => 1)
@@ -7,8 +8,9 @@ describe "edit a comment process" do
     click_on 'Edit comment'
     fill_in 'Your name', :with => 'AJ'
     click_on 'Update Comment'
-    expect(page).to have_content 'AJ'
+    expect(page).to have_content 'edited'
   end
+
     it "edits a comment comment" do
       post = Post.create(:title => "Epicodus", :blog => "So happy I attended", :id => 1)
       comment = Comment.create(:name =>"Amy", :comment =>"I agree", :post_id => 1)
@@ -16,6 +18,6 @@ describe "edit a comment process" do
       click_on 'Edit comment'
       fill_in 'Comment', :with => 'Yes!'
       click_on 'Update Comment'
-      expect(page).to have_content 'Yes!'
+      expect(page).to have_content 'edited'
     end
 end
