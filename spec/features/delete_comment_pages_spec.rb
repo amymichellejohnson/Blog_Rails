@@ -1,4 +1,5 @@
 require 'rails_helper'
+
 describe "delete a comment process" do
   it "deletes a comment" do
     post = Post.create(:title => "Epicodus", :blog => "So happy I attended", :id => 1)
@@ -7,5 +8,4 @@ describe "delete a comment process" do
     click_on 'Delete comment'
     expect(page).to have_content 'deleted'
   end
-
 end
