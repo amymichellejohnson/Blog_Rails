@@ -10,9 +10,24 @@
 <% if @comments.any? %>
   <h2>Comments on this blog:</h2>
 <% end %>
+
+
 <% @comments.each do |comment| %>
-  <p>By: <%= comment.name %></p>
-  <p><%= comment.comment %></p>
+  <div class="ui feed">
+    <div class="event">
+      <div class="label">
+        <i class="pencil icon"></i>
+      </div>
+      <div class="content">
+        <div class="summary">
+          <%= comment.name %> wrote
+        </div>
+        <div class="extra text">
+          <%= comment.comment %>
+        </div>
+      </div>
+    </div>
+  </div>
   <p><%= link_to "Edit comment", edit_post_comment_path(@post, comment) %> |
   <%= link_to "Delete comment", post_comment_path(@post, comment), :data => {:confirm => "Are you sure?", :method=> "delete"} %>
   <br>
