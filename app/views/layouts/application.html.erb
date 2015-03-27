@@ -14,17 +14,21 @@
     </ul>
 
     <ul class="nav navbar-nav navbar pull-right">
+      <% if current_user && current_user.admin %>
+        <li><%= link_to 'Create a New Post <i class="write icon"></i>'.html_safe, new_post_path %></li>
+      <% end %>
       <% if user_signed_in? %>
       <li><%= link_to 'Log out <i class="sign out icon"></i>'.html_safe, destroy_user_session_path, method: :delete %></li>
       <% else %>
-        <li><%= link_to 'Create a New Post <i class="write icon"></i>'.html_safe, new_post_path %></li>
         <li><%= link_to "Sign up", new_user_registration_path %> </li>
         <li><%= link_to 'Sign in <i class="sign in icon"></i>'.html_safe, new_user_session_path %></li>
-
       <% end %>
+
     </ul>
   </nav>
-
+  <% if current_user %>
+    <p>You are logged in as <%=current_user.name %></p>
+  <% end %>
   <%= flash[:alert] %>
   <%= flash[:notice] %>
 
