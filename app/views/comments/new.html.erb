@@ -1,3 +1,7 @@
-<h1>Comment on <I><%= @post.title %></I></h1>
-<p><%= @post.blog %></p>
-<%= render 'form' %>
+<% if current_user %>
+  <h1>Comment on <I><%= @post.title %></I></h1>
+  <p><%= @post.blog %></p>
+  <%= render 'form' %>
+<% else %>
+  <h2>Please sign in to post a comment</h2>
+<% end %>

@@ -2,8 +2,10 @@
 <p>Posted on: <%= @post.date %></p>
 <h4><%= @post.blog %></h4>
 <p>
-  <%= link_to 'Edit <i class="edit icon"></i>'.html_safe, edit_post_path(@post) %> |
-  <%= link_to 'Delete <i class="trash outline icon"></i>'.html_safe, post_path(@post), :data => {:confirm => "Are you sure?", :method=> "delete"} %> |
+  <% if current_user && current_user.id == @post.user_id %>
+    <%= link_to 'Edit <i class="edit icon"></i>'.html_safe, edit_post_path(@post) %> |
+    <%= link_to 'Delete <i class="trash outline icon"></i>'.html_safe, post_path(@post), :data => {:confirm => "Are you sure?", :method=> "delete"} %> |
+  <% end %>
   <%= link_to 'Comment <i class="comment outline icon"></i>'.html_safe, new_post_comment_path(@post) %>
 
 </p>
@@ -29,8 +31,10 @@
       </div>
     </div>
   </div>
-  <p><%= link_to 'Edit comment <i class="edit icon"></i>'.html_safe, edit_post_comment_path(@post, comment) %> |
-  <%= link_to 'Delete comment <i class="trash outline icon"></i>'.html_safe, post_comment_path(@post, comment), :data => {:confirm => "Are you sure?", :method=> "delete"} %>
+  <% if current_user && current_user.id == comment.user_id %>
+    <p><%= link_to 'Edit comment <i class="edit icon"></i>'.html_safe, edit_post_comment_path(@post, comment) %> |
+    <%= link_to 'Delete comment <i class="trash outline icon"></i>'.html_safe, post_comment_path(@post, comment), :data => {:confirm => "Are you sure?", :method=> "delete"} %>
+  <% end %>
   <br>
 <% end %>
 <br>
