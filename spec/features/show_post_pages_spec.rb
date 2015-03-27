@@ -6,4 +6,6 @@ describe "show a post process" do
     visit post_path(post)
     expect(page).to have_content 'So happy I attended'
   end
+
+
 end

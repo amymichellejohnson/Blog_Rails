@@ -2,7 +2,10 @@ require 'rails_helper'
 
 describe "edit a post process" do
   it "edits a post title" do
-    post = Post.create(:title => "Epicodus", :blog => "So happy I attended", :id => 1)
+    user = FactoryGirl.create(:admin)
+    sign_in(user)
+    post = FactoryGirl.create(:post)
+    post.update(:user_id => user.id)
     visit post_path(post)
     click_on 'Edit'
     fill_in 'Title', :with => 'EPICODUS'
@@ -11,7 +14,10 @@ describe "edit a post process" do
   end
 
     it "edits a post blog" do
-      post = Post.create(:title => "Epicodus", :blog => "So happy I attended", :id => 1)
+      user = FactoryGirl.create(:admin)
+      sign_in(user)
+      post = FactoryGirl.create(:post)
+      post.update(:user_id => user.id)
       visit post_path(post)
       click_on 'Edit'
       fill_in 'Blog', :with => 'Glad I attended'

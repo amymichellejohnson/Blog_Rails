@@ -2,11 +2,13 @@ require 'rails_helper'
 
   describe "the redirect to another pathway process" do
     it "redirects to the post page" do
-      post = Post.create(:title => "Epicodus", :blog => "So happy I attended", :id => 1)
-      comment = Comment.create(:name => "Nancy", :comment => "I agree", :post_id => 1 )
-      visit post_path(post)
+      user = FactoryGirl.create(:user)
+      sign_in(user)
+      comment = FactoryGirl.create(:comment)
+      comment.update(:user_id => user.id)
+      visit post_path(comment.post_id)
       click_on 'Edit comment'
       click_on 'Cancel: Back to Post'
-      expect(page).to have_content 'So happy I attended'
+      expect(page).to have_content comment.comment
     end
   end
