@@ -11,4 +11,11 @@ require 'rails_helper'
       click_on 'Cancel: Back to Post'
       expect(page).to have_content comment.comment
     end
+    it "redirects to the home page when clicked on navbar" do
+      post = FactoryGirl.create(:post)
+      visit post_path(post)
+      click_on "My Blog"
+      expect(page).to have_content "Welcome"
+    end
+
   end

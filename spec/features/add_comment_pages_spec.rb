@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "the add a comment process" do
-  it "adds a new comment" do
+  it "adds a new comment if signed in" do
     user = FactoryGirl.create(:user)
     sign_in(user)
     post = FactoryGirl.create(:post)
@@ -35,5 +35,12 @@ describe "the add a comment process" do
     visit post_path(comment.post_id)
     expect(page).to have_content user.name
     expect(page).to have_content comment.comment
+  end
+
+  it "Asks users to sign in before they can create a comment" do
+    post = FactoryGirl.create(:post)
+    visit post_path(post)
+    click_on "Comment"
+    expect(page).to have_content "sign in"
   end
 end
