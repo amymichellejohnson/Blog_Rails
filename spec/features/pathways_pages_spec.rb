@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+  describe "the redirect to another pathway process" do
     it "redirects to the post page" do
       post = Post.create(:title => "Epicodus", :blog => "So happy I attended", :id => 1)
       comment = Comment.create(:name => "Nancy", :comment => "I agree", :post_id => 1 )
