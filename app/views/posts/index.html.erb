@@ -1,19 +1,16 @@
-<h1>Hi! Welcome to your Main Blogging Page!</h1>
+<h1>Hi! Welcome to Amy's Blogging Page!</h1>
+<ul>
+  <li>Guests:  Log in as admin@admin.com, password: 12345678 to view the site as ADMIN</li>
+  <li>You must log in to create any comments or to edit/delete your comments</li>
+  <li>Only ADMIN can create a new post, all other signed in users may comment</li>
 
-
+<hr>
 <% if @posts.any? %>
-  <h2>Here are all your posts:</h2>
+  <h2>Blog posts:</h2>
 <% end %>
 
 <% @posts.each do |post| %>
   <ul>
-    <li><%= link_to post.title, post_path(post) %></li>
+    <li><%= link_to post.title, post_path(post) %> <%=post.date %></li>
   </ul>
 <% end %>
-
-<div class="wrapper">
-  <div class="inner"></div>
-  <div class="triangle"></div>
-  <div class="triangle"></div>
-  <div class="triangle"></div>
-</div>
