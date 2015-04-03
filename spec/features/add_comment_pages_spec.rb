@@ -39,10 +39,10 @@ describe "the add a comment process" do
   it "Asks users to sign in before they can create a comment" do
     post = FactoryGirl.create(:post)
     visit post_path(post)
-    click_on "Comment"
-    expect(page).to have_content "sign in"
+    expect(page).to have_content "Please sign in to comment"
   end
 end
+
 describe "the add a comment process with JS" do
   it "adds a new comment if signed in", js:true do
     user = FactoryGirl.create(:user)
@@ -54,7 +54,6 @@ describe "the add a comment process with JS" do
     fill_in 'Comment', :with => 'I agree!'
     click_on 'Create Comment'
     expect(page).to have_content 'I agree'
-    expect(page).to have_content 'added'
 
   end
 
@@ -66,7 +65,7 @@ describe "the add a comment process with JS" do
     visit post_path(post)
     click_on 'Comment'
     click_on 'Create Comment'
-    expect(page).to have_content 'errors'
+    expect(page).to have_content 'Please fill form completely'
   end
 
 
@@ -77,12 +76,5 @@ describe "the add a comment process with JS" do
     visit post_path(comment.post_id)
     expect(page).to have_content user.name
     expect(page).to have_content comment.comment
-  end
-
-  it "Asks users to sign in before they can create a comment", js:true do
-    post = FactoryGirl.create(:post)
-    visit post_path(post)
-    click_on "Comment"
-    expect(page).to have_content "sign in"
   end
 end

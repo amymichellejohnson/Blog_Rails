@@ -6,8 +6,11 @@
     <%= link_to 'Edit <i class="edit icon"></i>'.html_safe, edit_post_path(@post) %> |
     <%= link_to 'Delete <i class="trash outline icon"></i>'.html_safe, post_path(@post), :data => {:confirm => "Are you sure?", :method=> "delete"} %> |
   <% end %>
-
-  <%= link_to 'Comment <i class="comment outline icon"></i>'.html_safe, new_post_comment_path(@post), id: "new_comment_link", remote: true %>
+  <% if current_user %>
+    <%= link_to 'Comment <i class="comment outline icon"></i>'.html_safe, new_post_comment_path(@post), id: "new_comment_link", remote: true %>
+  <% else %>
+    <%= link_to "Please sign in to comment", new_user_session_path %>
+  <% end %>
 </p>
 
 <div class="comment_header">
