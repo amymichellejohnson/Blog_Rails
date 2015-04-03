@@ -22,6 +22,9 @@ end
 
 group :test, :development do
   gem 'rspec-rails'
+  gem 'rest-client'
+  gem 'dotenv-rails'
+
 end
 
 group :test do
