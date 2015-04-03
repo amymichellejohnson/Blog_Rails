@@ -20,8 +20,8 @@ class CommentsController <ApplicationController
         format.html {
           flash[:error] = "Failure."
           render :new }
-        format.js
-          render 'layouts/errors'
+        format.js {
+          render 'error'}
       end
     end
   end
