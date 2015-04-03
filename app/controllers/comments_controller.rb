@@ -10,10 +10,19 @@ class CommentsController <ApplicationController
     @comment = @post.comments.new(comment_params)
     @comment.user_id = current_user.id
     if @comment.save
-      flash[:notice] = "Comment successfully added!"
-      redirect_to post_path(@post)
+      respond_to do |format|
+        format.html { flash[:notice] = "Comment successfully added!"
+        redirect_to post_path(@post)}
+        format.js
+      end
     else
-      render :new
+      respond_to do |format|
+        format.html {
+          flash[:error] = "Failure."
+          render :new }
+        format.js
+          render 'layouts/errors'
+      end
     end
   end
 

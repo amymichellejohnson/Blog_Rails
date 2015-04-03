@@ -6,35 +6,21 @@
     <%= link_to 'Edit <i class="edit icon"></i>'.html_safe, edit_post_path(@post) %> |
     <%= link_to 'Delete <i class="trash outline icon"></i>'.html_safe, post_path(@post), :data => {:confirm => "Are you sure?", :method=> "delete"} %> |
   <% end %>
-  <%= link_to 'Comment <i class="comment outline icon"></i>'.html_safe, new_post_comment_path(@post) %>
 
+  <%= link_to 'Comment <i class="comment outline icon"></i>'.html_safe, new_post_comment_path(@post), id: "new_comment_link", remote: true %>
 </p>
 
-<% if @comments.any? %>
-  <h2>Comments on this blog:</h2>
-<% end %>
+<div class="comment_header">
+  <% if @comments.any? %>
+    <br>
+    <h2>Comments on this blog:</h2>
+  <% end %>
+</div>
 
 
 <% @comments.each do |comment| %>
-  <div class="ui feed">
-    <div class="event">
-      <div class="label">
-        <i class="pencil icon"></i>
-      </div>
-      <div class="content">
-        <div class="summary">
-          <%= comment.user.name %> wrote:
-        </div>
-        <div class="extra text">
-          <%= comment.comment %>
-        </div>
-      </div>
-    </div>
-  </div>
-  <% if current_user && current_user.id == comment.user_id || current_user &&current_user.admin %>
-    <p><%= link_to 'Edit comment <i class="edit icon"></i>'.html_safe, edit_post_comment_path(@post, comment) %> |
-    <%= link_to 'Delete comment <i class="trash outline icon"></i>'.html_safe, post_comment_path(@post, comment), :data => {:confirm => "Are you sure?", :method=> "delete"} %>
-  <% end %>
-  <br>
+    <%= render 'comments/comment', comment: comment %>
 <% end %>
-<br>
+
+<div class = "comment_list" %>
+</div>

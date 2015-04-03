@@ -11,9 +11,7 @@
 // about supported directives.
 //
 //= require jquery
-//= require bootstrap-sprockets
-// Loads all Semantic javascripts
-//= require semantic-ui
 //= require jquery_ujs
+//= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .

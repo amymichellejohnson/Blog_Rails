@@ -1,0 +1,17 @@
+<div class="ui feed" id="comment">
+  <div class="event">
+    <div class="label">
+      <i class="pencil icon"></i>
+    </div>
+    <div class="summary">
+      <%= comment.user.name %> wrote:
+    </div>
+    <div class="extra text">
+      <%= comment.comment %>
+    </div>
+  </div>
+</div>
+<% if current_user && current_user.id == comment.user_id || current_user &&current_user.admin %>
+  <p><%= link_to 'Edit comment <i class="edit icon"></i>'.html_safe, edit_post_comment_path(@post, comment) %> |
+  <%= link_to 'Delete comment <i class="trash outline icon"></i>'.html_safe, post_comment_path(@post, comment), :data => {:confirm => "Are you sure?", :method=> "delete"} %>
+<% end %>
