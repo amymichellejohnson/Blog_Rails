@@ -4,6 +4,7 @@ FactoryGirl.define do
     name('Derp')
     email('derp@derp.com')
     password('derpderp')
+    telephone("5034444444")
     admin(false)
   end
 
@@ -11,6 +12,7 @@ FactoryGirl.define do
     name('Admin')
     email('admin@admin.com')
     password('12345678')
+    telephone('5034765356')
     admin(true)
   end
 
@@ -19,9 +21,6 @@ FactoryGirl.define do
     blog("I spend hours each day comtemplating...")
   end
 
-  factory(:comment) do
-    comment("I totally agree!")
-    post
-  end
+  
 
 end
