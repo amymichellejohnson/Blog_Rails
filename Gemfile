@@ -11,6 +11,8 @@ gem 'bootstrap-sass', '~> 3.3.4'
 gem 'sass-rails', '>= 3.2'
 gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass', branch: 'v1.0beta'
 gem 'devise'
+gem 'rest-client'
+
 
 
 group :development do
@@ -22,7 +24,6 @@ end
 
 group :test, :development do
   gem 'rspec-rails'
-  gem 'rest-client'
   gem 'dotenv-rails'
 
 end
