@@ -1,12 +1,12 @@
 BLOG APP (Ruby on Rails)
 ------------
-The Blog app allows Admin to log in to post his/her thoughts in a blog entry with a title and date and to see all of his/her posts listed by title with a link to each post, so that they may update or delete any of their posts. The app also allows other users to log in and comment on a blog post, have their comments displayed, and to be able to edit or delete their comments. Only users who created the comment or ADMIN may edit/delete the comment.
+The Blog app allows Admin to log in to post his/her thoughts in a blog entry with a title and date and to see all of his/her posts listed by title with a link to each post, so that they may update or delete any of their posts. The app also allows other users to log in and comment on a blog post, have their comments displayed, and to be able to edit or delete their comments. Only users who created the comment or ADMIN may edit/delete the comment.  When users create a comment, a sms message will be sent to the post's creator that someone has commented on his/her post.
 
 View this app in your browser at: https://shrouded-bayou-9463.herokuapp.com/
 
 MOTIVATION
 ------------
-To practice using Ruby on Rails routes, models, controllers, form-builders, route-helpers, error displays, partials, mass-assignment, integration tests, devise to create log in/out ability, and the asset pipeline for Bootstrap/CSS.
+To practice using Ruby on Rails routes, models, controllers, form-builders, route-helpers, error displays, partials, mass-assignment, integration tests, devise to create log in/out ability, the asset pipeline for Bootstrap/CSS, AJAX, APIs and Twilio.
 
 REQUIREMENTS
 ------------

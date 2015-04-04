@@ -17,8 +17,8 @@ class Comment <ActiveRecord::Base
         :From => '5039256735' }
         ).execute
     rescue RestClient::BadRequest => error
-      message = JSON.parse(error.response)['message']
-      errors.add(:base, message)
+      comment = JSON.parse(error.response)['comment']
+      errors.add(:base, comment)
       false
     end
   end
